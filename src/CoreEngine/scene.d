@@ -48,6 +48,8 @@ class Scene {
     this(SDL_Renderer* r, void delegate() onComplete) {
         mRendererRef = r;
         mOnComplete = onComplete;
+
+        camera = new Camera();
     }
 
     void Input(SDL_Event e) {
@@ -59,7 +61,7 @@ class Scene {
     void Update() {
         if (freezeFrames > 0) {
             freezeFrames -= 1;
-            return; 
+            return;
         }
 
         foreach (obj; gameObjects) {
@@ -82,10 +84,13 @@ class Scene {
     }
 
     void Render() {
-        auto playerTransform = cast(TransformComponent) player.GetComponent(
-            ComponentType.TRANSFORM);
 
-        cameraScript.UpdateCamera(playerTransform.x, playerTransform.y);
+        if (cameraScript !is null) {
+            auto playerTransform = cast(TransformComponent) player.GetComponent(
+                ComponentType.TRANSFORM);
+
+            cameraScript.UpdateCamera(playerTransform.x, playerTransform.y);
+        }
 
         // Set each objects local pos based on camera
         foreach (obj; gameObjects) {

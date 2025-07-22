@@ -41,6 +41,9 @@ class TextureComponent : IComponent {
 
 // We're just doing one script per game object 
 class ScriptComponent : IComponent {
+	this(GameObject owner) {
+		mOwner = owner;
+	}
     void Update() { }
 }
 

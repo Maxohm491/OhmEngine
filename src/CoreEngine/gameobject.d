@@ -8,12 +8,9 @@ import bindbc.sdl;
 
 import Engine.component;
 
-class GameObject
-{
-	static GameObject GetGameObject(string name)
-	{
-		if (name in sGameObjects)
-		{
+class GameObject {
+	static GameObject GetGameObject(string name) {
+		if (name in sGameObjects) {
 			return sGameObjects[name];
 		}
 		assert(0, "Game object '" ~ name ~ "' does not exist");
@@ -22,8 +19,7 @@ class GameObject
 	static GameObject[string] sGameObjects;
 
 	// Constructor
-	this(string name)
-	{
+	this(string name) {
 		assert(name.length > 0);
 		mName = name;
 		// atomic increment of number of game objects
@@ -35,18 +31,15 @@ class GameObject
 		alive = true;
 	}
 
-	string GetName() const
-	{
+	string GetName() const {
 		return mName;
 	}
 
-	size_t GetID() const
-	{
+	size_t GetID() const {
 		return mID;
 	}
 
-	void Update()
-	{
+	void Update() {
 		// Update script. A gameobject can only have one in this engine.
 		auto script = this.GetComponent(ComponentType.SCRIPT);
 		if (script !is null)
@@ -58,40 +51,32 @@ class GameObject
 			(cast(ColliderComponent) collider).Update();
 	}
 
-	void Input(SDL_Event event)
-	{
+	void Input(SDL_Event event) {
 		// Update input component
 		auto input = this.GetComponent(ComponentType.INPUT);
 		if (input !is null)
 			(cast(InputComponent) input).Input(event);
 	}
 
-	void Render()
-	{
+	void Render() {
 		// Render all sprites
 		auto stat_sprite = this.GetComponent(ComponentType.SPRITE);
-		if (stat_sprite !is null)
-		{
+		if (stat_sprite !is null) {
 			(cast(SpriteComponent) stat_sprite).Render();
 		}
 	}
 
 	// Retrieve specific component type
-	IComponent GetComponent(ComponentType type)
-	{
-		if (type in mComponents)
-		{
+	IComponent GetComponent(ComponentType type) {
+		if (type in mComponents) {
 			return mComponents[type];
-		}
-		else
-		{
+		} else {
 			return null;
 		}
 	}
 
 	// Template parameter
-	void AddComponent(ComponentType T)(IComponent component)
-	{
+	void AddComponent(ComponentType T)(IComponent component) {
 		mComponents[T] = component;
 	}
 
@@ -112,30 +97,24 @@ class GameObject
 // CAUTION: Each new ordering of components will instantiate a new type.
 // 					I'd thus recommend 'sorting' the variadic arguments. That takes
 //          a little bit more work, and I'll leave as an exercise until someone asks..
-GameObject GameObjectFactory(T...)(string name)
-{
+GameObject GameObjectFactory(T...)(string name) {
 	// Create our game object
 	GameObject go = new GameObject(name);
 	// Static foreach loop will be 'unrolled' with
 	// each 'if' condition for what is true.
 	// This could also handle the case where we repeat component types as well if our
 	// game object supports multiple components of the same type.
-	static foreach (component; T)
-	{
-		static if (component == ComponentType.TEXTURE)
-		{
+	static foreach (component; T) {
+		static if (component == ComponentType.TEXTURE) {
 			go.AddComponent!(component)(new TextureComponent(go));
 		}
-		static if (component == ComponentType.TRANSFORM)
-		{
+		static if (component == ComponentType.TRANSFORM) {
 			go.AddComponent!(component)(new TransformComponent(go));
 		}
-		static if (component == ComponentType.COLLIDER)
-		{
+		static if (component == ComponentType.COLLIDER) {
 			go.AddComponent!(component)(new ColliderComponent(go));
 		}
-		static if (component == ComponentType.SPRITE)
-		{
+		static if (component == ComponentType.SPRITE) {
 			go.AddComponent!(component)(new SpriteComponent(go));
 		}
 	}
@@ -149,3 +128,19 @@ alias MakeCollider = GameObjectFactory!(ComponentType
 		.TRANSFORM, ComponentType.COLLIDER);
 alias MakeTransform = GameObjectFactory!(ComponentType
 		.TRANSFORM);
+
+GameObject SpriteFactory(string name, string imgPath, string metaPath, SDL_Renderer* rendererRef) {
+	GameObject go = MakeSprite(name);
+	TextureComponent texture = cast(TextureComponent) go.GetComponent(
+		ComponentType.TEXTURE);
+	SpriteComponent sprite = cast(SpriteComponent) go.GetComponent(ComponentType.SPRITE);
+	texture.LoadTexture(imgPath, rendererRef);
+	sprite.LoadMetaData(metaPath);
+
+	auto input = new InputComponent(go);
+	go.AddComponent!(ComponentType.INPUT)(input);
+
+	sprite.mRendererRef = rendererRef;
+
+	return go;
+}

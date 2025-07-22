@@ -4,6 +4,7 @@ import std.stdio;
 import bindbc.sdl;
 import Engine.gameapplication;
 import Engine.resourcemanager;
+import examplegame;
 import core.memory;
 
 class MainApplication {
@@ -19,7 +20,7 @@ class MainApplication {
         mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
 
         // Create game application
-        // game = new GameApp(mRenderer); // REPLACE WITH ACTUAL GAME APP
+        // game = new ExampleGame(mRenderer); // REPLACE WITH ACTUAL GAME APP
         game.quitCallback = &Quit;
     }
 

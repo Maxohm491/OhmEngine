@@ -6,75 +6,41 @@ import Engine.gameapplication;
 import Engine.resourcemanager;
 import core.memory;
 
-// This is everything that should be in this class probably don't add more
-// class MainApplication
-// {
-//     SDL_Window* mWindow = null;
-//     SDL_Renderer* mRenderer = null;
+class MainApplication {
+    SDL_Window* mWindow = null;
+    SDL_Renderer* mRenderer = null;
+    GameApplication game = null;
+    bool gameRunning = true;
 
-//     GameApplication game = null;
+    this() {
+        // Set up window
+        mWindow = SDL_CreateWindow("Game", SDL_WINDOWPOS_UNDEFINED,
+            SDL_WINDOWPOS_UNDEFINED, 1280, 720, SDL_WINDOW_SHOWN);
+        mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
 
-//     bool gameRunning = true; // If this is false, then editor is running
-//     bool active = true;
+        // Create game application
+        // game = new GameApp(mRenderer); // REPLACE WITH ACTUAL GAME APP
+        game.quitCallback = &Quit;
+    }
 
-//     this()
-//     {
-//         // Set up window
-//         mWindow = SDL_CreateWindow("Game", SDL_WINDOWPOS_UNDEFINED,
-//             SDL_WINDOWPOS_UNDEFINED, SCREEN_X, SCREEN_Y, SDL_WINDOW_SHOWN);
-//         mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
+    ~this() {
+        SDL_DestroyRenderer(mRenderer);
+        SDL_DestroyWindow(mWindow);
+    }
 
-//         // Create game application and editor application
-//         editor = new Editor(mRenderer);
-//         game = new BoingGameApp(mRenderer);
-//         editor.switchAppCallback = &SwitchRunningApp;
-//         game.switchAppCallback = &SwitchRunningApp;
-//         editor.quitCallback = &Quit;
-//         game.quitCallback = &Quit;
-//     }
+    void Run() {
+        while (gameRunning) {
+            game.Tick();
+        }
+    }
 
-//     ~this()
-//     {
-//         SDL_DestroyRenderer(mRenderer);
-//         SDL_DestroyWindow(mWindow);
-//     }
-
-//     void Run()
-//     {
-//         while(active) {
-//             if(gameRunning)
-//                 game.Tick();
-//             else
-//                 editor.Tick();
-//         }
-//     }
-
-//     void SwitchRunningApp()
-//     {
-//         if (gameRunning)
-//         {
-//             game.Stop();
-//             editor.scene = game.mCurrScene + 1;
-//             editor.Start();
-//         }
-//         else
-//         {
-//             editor.Stop();
-//             game.mCurrScene  = editor.scene - 1;
-//             game.Start();
-//         }
-//         gameRunning = !gameRunning;
-//     }
-
-//     void Quit()
-//     {
-//         active = false;
-//     }
-// }
-
-// Main entry point. Add code to make a GameApplication and run it here.
-void main()
-{
-    writeln("hi");
+    void Quit() {
+        gameRunning = false;
+    }
 }
 
+// Main entry point. Add code to make a GameApplication and run it here.
+void main() {
+    MainApplication app = new MainApplication();
+    app.Run();
+}

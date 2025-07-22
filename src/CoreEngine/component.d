@@ -1,4 +1,3 @@
-// Sourced with modifications from the class github at 06_gameobject/full_component/component.d
 module Engine.component;
 
 import std.stdio;
@@ -174,8 +173,8 @@ class SpriteComponent : IComponent {
 				frame = mFrames[mFrameNumbers[mCurrentAnimationName][mCurrentFrameIndex]];
 			}
 
-			drawRect.w = cast(int)(frame.mRect.w * 6);
-			drawRect.h = cast(int)(frame.mRect.h * 6);
+			drawRect.w = cast(int)(frame.mRect.w * 4);
+			drawRect.h = cast(int)(frame.mRect.h * 4);
 
 			SDL_RenderCopyEx(mRendererRef, mTextureRef, &(frame.mRect), &(drawRect), 0, null,
 				flipped ? SDL_RendererFlip.SDL_FLIP_HORIZONTAL : SDL_RendererFlip
@@ -271,8 +270,8 @@ class TransformComponent : IComponent {
 	}
 
 	void UpdateScreenPos(SDL_Point cameraPos) {
-		screenPos.x = cast(int)((worldPos.x - cameraPos.x) * 6);
-		screenPos.y = cast(int)((worldPos.y - cameraPos.y) * 6);
+		screenPos.x = cast(int)((worldPos.x - cameraPos.x) * 4);
+		screenPos.y = cast(int)((worldPos.y - cameraPos.y) * 4);
 	}
 
 	SDL_Point GetScreenPos() {

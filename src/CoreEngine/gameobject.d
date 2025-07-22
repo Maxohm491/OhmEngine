@@ -1,4 +1,3 @@
-// Sourced with modifications from the class github at 06_gameobject/full_component/gameobject.d
 module Engine.gameobject;
 
 import core.atomic;

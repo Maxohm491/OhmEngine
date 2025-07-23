@@ -1,7 +1,8 @@
 # Ohm Engine
 
-A fast, lightweight, and flexible 2D game engine built with **Dlang**.  
-Designed for developers who want a simple framework to create any kind of 2D game. I created it for my own personal use, but feel free to use any or all of my code if you find it helpful.
+A fast, lightweight, and flexible 2D game engine built with **Dlang**. Designed for developers who want a simple framework to create any kind of 2D game. I created it for my own personal use, but feel free to use any or all of my code if you find it helpful.
+
+Check ui
 
 ## Features
 
@@ -21,10 +22,8 @@ Designed for developers who want a simple framework to create any kind of 2D gam
 
 [![YouTube Overview](https://img.youtube.com/vi/P7vgFmeguic/0.jpg)](https://www.youtube.com/watch?v=P7vgFmeguic)
 
-## Usage
-
-<!-- Fill this section in with details on creating a project, adding sprites, physics, and scripting -->
-**Coming soon:** Code examples and in-depth usage instructions.
+## Example Usage
+I made a lovely game called Boing with this game engine. The video above shows gameplay from it, and the full code and further details can be found here.
 
 ## Contributing
 

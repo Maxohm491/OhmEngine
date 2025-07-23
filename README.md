@@ -1,7 +1,7 @@
 # Ohm Engine
 
 A fast, lightweight, and flexible 2D game engine built with **Dlang**.  
-Designed for developers who want a simple framework to create any kind of 2D game. The main goal is to be highly customizable and adaptable.
+Designed for developers who want a simple framework to create any kind of 2D game. I created it for my own personal use, but feel free to use any or all of my code if you find it helpful.
 
 ## Features
 

@@ -3,8 +3,6 @@
 A fast, lightweight, and flexible 2D game engine built with **Dlang**.  
 Designed for developers who want a simple framework to create any kind of 2D game. The main goal is to be highly customizable and adaptable.
 
----
-
 ## Features
 
 - **Sprite Rendering & Animation**  
@@ -19,22 +17,15 @@ Designed for developers who want a simple framework to create any kind of 2D gam
 - **Extensible Architecture**  
   Modular design for adding custom systems, tools, and workflows.
 
----
-
 ## Getting Started
 
 <!-- Fill this section in with instructions on installation and setup -->
 **Coming soon:** Installation, quick-start guide, and example project.
 
----
-
 ## Usage
 
 <!-- Fill this section in with details on creating a project, adding sprites, physics, and scripting -->
 **Coming soon:** Code examples and in-depth usage instructions.
-
-
----
 
 ## Contributing
 

@@ -17,10 +17,9 @@ Designed for developers who want a simple framework to create any kind of 2D gam
 - **Extensible Architecture**  
   Modular design for adding custom systems, tools, and workflows.
 
-## Getting Started
+## YouTube Overview
 
-<!-- Fill this section in with instructions on installation and setup -->
-**Coming soon:** Installation, quick-start guide, and example project.
+[![YouTube Overview](https://img.youtube.com/vi/P7vgFmeguic/0.jpg)](https://www.youtube.com/watch?v=P7vgFmeguic)
 
 ## Usage
 

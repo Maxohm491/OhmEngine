@@ -23,8 +23,10 @@ D is a general-purpose systems programming language that was originally designed
 
 [![YouTube Overview](https://img.youtube.com/vi/P7vgFmeguic/0.jpg)](https://www.youtube.com/watch?v=P7vgFmeguic)
 
-## Example Usage
+## Usage
 I made a lovely game called Boing with this game engine. The video above shows gameplay from it, and the full code and further details can be found [here](https://github.com/Maxohm491/Boing).
+
+If you're looking to use the engine yourself, you'll need a D compiler and **dub**, the official D package manager. Both can be downloaded [here](https://dlang.org/). The engine also relies on [Simple DirectMedia Layer](https://www.libsdl.org/) 2, the popular open source library that provides an abstraction layer for multimedia hardware components like screens and keyboards. 
 
 ## Contributing
 

@@ -2,6 +2,9 @@
 
 A fast, lightweight, and flexible 2D game engine built with **Dlang**. Designed for developers who want a simple framework to create any kind of 2D game. I created it for my own personal use, but feel free to use any or all of my code if you find it helpful.
 
+## Why Dlang?
+D is a general-purpose systems programming language that was originally designed as a re-regineering of C++, although it's grown far past that nowadays. Learn about it [here](https://dlang.org/)! I chose it for this project because I think it's very underused for game development. It offers all of the speed and low-level control of something like C++, while also having useful features like array slicing, an (optional) garbage collector, and compile-time execution for certain functions. 
+
 ## Features
 
 - **Sprite Rendering & Animation**  
@@ -21,7 +24,7 @@ A fast, lightweight, and flexible 2D game engine built with **Dlang**. Designed 
 [![YouTube Overview](https://img.youtube.com/vi/P7vgFmeguic/0.jpg)](https://www.youtube.com/watch?v=P7vgFmeguic)
 
 ## Example Usage
-I made a lovely game called Boing with this game engine. The video above shows gameplay from it, and the full code and further details can be found here.
+I made a lovely game called Boing with this game engine. The video above shows gameplay from it, and the full code and further details can be found [here](https://github.com/Maxohm491/Boing).
 
 ## Contributing
 

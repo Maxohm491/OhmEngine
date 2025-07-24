@@ -21,7 +21,7 @@ D is a general-purpose systems programming language that was originally designed
 
 ## YouTube Overview
 
-[![YouTube Overview](https://img.youtube.com/vi/P7vgFmeguic/0.jpg)](https://www.youtube.com/watch?v=P7vgFmeguic)
+[![YouTube Overview](https://img.youtube.com/vi/P7vgFmeguic/0.jpg)](http://youtube.com/watch?v=rEVy8WC1mtE)
 
 ## Usage
 I made a lovely game called Boing with this game engine. The video above shows gameplay from it, and the full code and further details can be found [here](https://github.com/Maxohm491/Boing).

@@ -1,6 +1,6 @@
 # Ohm Engine
 
-A fast, lightweight, and flexible 2D game engine built with **Dlang**. Designed for developers who want a simple framework to create any kind of 2D game. I created it for my own personal use, but feel free to use any or all of my code if you find it helpful.
+A fast, lightweight, and flexible 2D game engine built by me, from scratch, with **Dlang**. Designed for developers who want a simple framework to create any kind of 2D game. I created it for my own personal use, but feel free to use any or all of my code if you find it helpful.
 
 ## Why Dlang?
 D is a general-purpose systems programming language that was originally designed as a re-regineering of C++, although it's grown far past that nowadays. Learn about it [here](https://dlang.org/)! I chose it for this project because I think it's very underused for game development. It offers all of the speed and low-level control of something like C++, while also having useful features like array slicing, an (optional) garbage collector, and compile-time execution for certain functions. 
